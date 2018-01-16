@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="TALLER_GestionPeliculas" targetNamespace="http://pranical-2016/tallerIS.ws.provider:TALLER_GestionPeliculas" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapjms="http://www.w3.org/2010/soapjms/" xmlns:tns="http://pranical-2016/tallerIS.ws.provider:TALLER_GestionPeliculas" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://pranical-2016/tallerIS.ws.provider:TALLER_GestionPeliculas" xmlns:tns="http://pranical-2016/tallerIS.ws.provider:TALLER_GestionPeliculas" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+          <xsd:element name="agregarPelicula" type="tns:agregarPelicula"/>
+          <xsd:element name="agregarPeliculaResponse" type="tns:agregarPeliculaResponse"/>
+          <xsd:element name="borrarPelicula" type="tns:borrarPelicula"/>
+          <xsd:element name="borrarPeliculaResponse" type="tns:borrarPeliculaResponse"/>
+          <xsd:element name="consultarPeliculas" type="tns:consultarPeliculas"/>
+          <xsd:element name="consultarPeliculasResponse" type="tns:consultarPeliculasResponse"/>
+          <xsd:element name="modificarPelicula" type="tns:modificarPelicula"/>
+          <xsd:element name="modificarPeliculaResponse" type="tns:modificarPeliculaResponse"/>
+          <xsd:complexType name="agregarPelicula">
+            <xsd:sequence>
+              <xsd:element name="pelicula" nillable="true" type="tns:pelicula"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="pelicula">
+            <xsd:sequence>
+              <xsd:element name="id" nillable="true" type="xsd:string"/>
+              <xsd:element name="annio" nillable="true" type="xsd:string"/>
+              <xsd:element name="edicion" nillable="true" type="xsd:string"/>
+              <xsd:element name="nombre" nillable="true" type="xsd:string"/>
+              <xsd:element name="premios" nillable="true" type="xsd:string"/>
+              <xsd:element name="nominaciones" nillable="true" type="xsd:string"/>
+              <xsd:element name="genero" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="agregarPeliculaResponse">
+            <xsd:sequence>
+              <xsd:element name="resultado" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="borrarPelicula">
+            <xsd:sequence>
+              <xsd:element name="where" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="borrarPeliculaResponse">
+            <xsd:sequence>
+              <xsd:element name="resultado" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="consultarPeliculas">
+            <xsd:sequence>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="consultarPeliculasResponse">
+            <xsd:sequence>
+              <xsd:element maxOccurs="unbounded" name="peliculas" nillable="true" type="tns:pelicula"/>
+              <xsd:element name="resultado" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="modificarPelicula">
+            <xsd:sequence>
+              <xsd:element name="pelicula" nillable="true" type="tns:pelicula"/>
+            </xsd:sequence>
+          </xsd:complexType>
+          <xsd:complexType name="modificarPeliculaResponse">
+            <xsd:sequence>
+              <xsd:element name="resultado" nillable="true" type="xsd:string"/>
+            </xsd:sequence>
+          </xsd:complexType>
+        	</xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_modificarPelicula">
+    <wsdl:part name="parameters" element="tns:modificarPelicula">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_borrarPeliculaResponse">
+    <wsdl:part name="parameters" element="tns:borrarPeliculaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_consultarPeliculasResponse">
+    <wsdl:part name="parameters" element="tns:consultarPeliculasResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_agregarPelicula">
+    <wsdl:part name="parameters" element="tns:agregarPelicula">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_consultarPeliculas">
+    <wsdl:part name="parameters" element="tns:consultarPeliculas">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_agregarPeliculaResponse">
+    <wsdl:part name="parameters" element="tns:agregarPeliculaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_modificarPeliculaResponse">
+    <wsdl:part name="parameters" element="tns:modificarPeliculaResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="TALLER_GestionPeliculas_PortType_borrarPelicula">
+    <wsdl:part name="parameters" element="tns:borrarPelicula">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="TALLER_GestionPeliculas_PortType">
+    <wsdl:operation name="borrarPelicula">
+      <wsdl:input message="tns:TALLER_GestionPeliculas_PortType_borrarPelicula">
+    </wsdl:input>
+      <wsdl:output message="tns:TALLER_GestionPeliculas_PortType_borrarPeliculaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarPelicula">
+      <wsdl:input message="tns:TALLER_GestionPeliculas_PortType_modificarPelicula">
+    </wsdl:input>
+      <wsdl:output message="tns:TALLER_GestionPeliculas_PortType_modificarPeliculaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarPelicula">
+      <wsdl:input message="tns:TALLER_GestionPeliculas_PortType_agregarPelicula">
+    </wsdl:input>
+      <wsdl:output message="tns:TALLER_GestionPeliculas_PortType_agregarPeliculaResponse">
+    </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPeliculas">
+      <wsdl:input message="tns:TALLER_GestionPeliculas_PortType_consultarPeliculas">
+    </wsdl:input>
+      <wsdl:output message="tns:TALLER_GestionPeliculas_PortType_consultarPeliculasResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="tallerIS_ws_provider_TALLER_GestionPeliculas_Binder" type="tns:TALLER_GestionPeliculas_PortType">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="borrarPelicula">
+      <soap:operation soapAction="tallerIS_ws_provider_TALLER_GestionPeliculas_Binder_borrarPelicula" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="modificarPelicula">
+      <soap:operation soapAction="tallerIS_ws_provider_TALLER_GestionPeliculas_Binder_modificarPelicula" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="agregarPelicula">
+      <soap:operation soapAction="tallerIS_ws_provider_TALLER_GestionPeliculas_Binder_agregarPelicula" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="consultarPeliculas">
+      <soap:operation soapAction="tallerIS_ws_provider_TALLER_GestionPeliculas_Binder_consultarPeliculas" style="document"/>
+      <wsdl:input>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="tallerIS.ws.provider.TALLER_GestionPeliculas">
+    <wsdl:port name="tallerIS_ws_provider_TALLER_GestionPeliculas_Port" binding="tns:tallerIS_ws_provider_TALLER_GestionPeliculas_Binder">
+      <soap:address location="http://127.0.0.1:5555/ws/tallerIS.ws.provider.TALLER_GestionPeliculas/tallerIS_ws_provider_TALLER_GestionPeliculas_Port"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsclients>
+<webservice authenticationMethod="-1" isConnectionURL="http://localhost:5555/ws/tallerIS.ws.provider:TALLER_GestionPeliculas?WSDL" isService="tallerIS.ws.provider:TALLER_GestionPeliculas" name="TALLER_GestionPeliculas" package="com.webmethods.caf.wsclient.talleris.ws.provider.taller_gestionpeliculas" password="{AES}Y5IgMqjfvkgbg7p5VUZztw==" requiresAuth="true" soapLibrary="wss" useNamespaceForPackage="false" username="Administrator" wsdlFile="src/com/webmethods/caf/wsclient/talleris/ws/provider/taller_gestionpeliculas/TALLER_GestionPeliculas.wsdl" wsdlURL="http://localhost:5555/ws/tallerIS.ws.provider:TALLER_GestionPeliculas?WSDL">
+<wsproxy className="com.webmethods.caf.wsclient.talleris.ws.provider.taller_gestionpeliculas.TallerISWsProviderTALLER_GestionPeliculasStub">
+<wsclient managedBean="AgregarPelicula" operation="agregarPelicula"/>
+<wsclient managedBean="ConsultarPeliculas" operation="consultarPeliculas"/>
+<wsclient managedBean="ModificarPelicula" operation="modificarPelicula"/>
+<wsclient managedBean="BorrarPelicula" operation="borrarPelicula"/>
+</wsproxy>
+<generatedfile>com\webmethods\caf\wsclient\talleris\ws\provider\taller_gestionpeliculas\TallerISWsProviderTALLER_GestionPeliculasStub.java</generatedfile>
+</webservice>
+</wsclients>

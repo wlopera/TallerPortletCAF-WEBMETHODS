@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<wm-portlet-app version="1.0">
+	<wm-portlet>
+		<portlet-name>oscars</portlet-name>
+		<category>PremiosOscar</category>
+	</wm-portlet></wm-portlet-app>
+

@@ -1,0 +1,354 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<view>
+  <property name='pageManagedBean' value='OscarsDefaultviewView' />
+  <property name='preferencesBean' value='Oscars' />
+  <design-time-attribute name='portlet' value='oscars' />
+  <control component-type='com.webmethods.caf.faces.output.ErrorMessages' renderer-type='com.webmethods.caf.faces.output.ErrorMessages'>
+  </control>
+  <control component-type='javax.faces.HtmlForm' renderer-type='javax.faces.Form'>
+    <property name='defaultFocus' value='_first' />
+    <property name='id' value='defaultForm' />
+    <control component-type='com.webmethods.caf.faces.output.IncludeStylesheet' renderer-type='com.webmethods.caf.faces.output.IncludeStylesheet'>
+      <property name='id' value='includeStylesheet' />
+      <property name='value' value='/css/estilos.css' />
+    </control>
+    <control component-type='com.webmethods.caf.faces.output.IncludeScript' renderer-type='com.webmethods.caf.faces.output.IncludeScript'>
+      <property name='evaluate' value='true' />
+      <property name='id' value='includeScript' />
+      <property name='value' value='/js/premiosOscar.js' />
+    </control>
+    <control component-type='javax.faces.HtmlPanelGroup' renderer-type='com.webmethods.caf.faces.panel.BlockPanel'>
+      <property name='id' value='idPanelHeader' />
+      <control component-type='javax.faces.HtmlGraphicImage' renderer-type='javax.faces.Image'>
+        <property name='id' value='idImage' />
+        <property name='style' value='width: 800px; height: 150px; ' />
+        <property name='value' value='/image/oscar.jpg' />
+      </control>
+    </control>
+    <control component-type='javax.faces.HtmlPanelGroup' renderer-type='com.webmethods.caf.faces.panel.BlockPanel'>
+      <property name='id' value='idPanelBody' />
+      <property name='rendered' value='' />
+      <control component-type='com.webmethods.caf.faces.panel.StaticRow' renderer-type='com.webmethods.caf.faces.panel.StaticRow'>
+        <property name='id' value='staticRow1' />
+        <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+          <property name='id' value='staticCell1' />
+          <property name='styleClass' value='celdaBtnAgregar' />
+          <control component-type='com.webmethods.caf.faces.output.HtmlButton' renderer-type='javax.faces.Button'>
+            <property name='id' value='htmlButton' />
+            <property name='label' value='Agregar Pel&#237;cula' />
+            <property name='onclick' value='agregarPeliculaData();' />
+            <property name='styleClass' value='boton' />
+          </control>
+        </control>
+      </control>
+      <control component-type='com.webmethods.caf.faces.panel.StaticRow' renderer-type='com.webmethods.caf.faces.panel.StaticRow'>
+        <property name='id' value='staticRow' />
+        <control component-type='com.webmethods.caf.faces.panel.StaticCell' renderer-type='com.webmethods.caf.faces.panel.StaticCell'>
+          <property name='id' value='staticCell' />
+          <control component-type='com.webmethods.caf.faces.table.AsyncTable' renderer-type='com.webmethods.caf.faces.table.AsyncTable'>
+            <property name='fixedHeight' value='' />
+            <property name='footerClass' value='tableFooter' />
+            <property name='id' value='asyncTable' />
+            <property name='rowClasses' value='td-alternate, claseTD' />
+            <property name='rows' value='10' />
+            <property name='styleClass' value='tabla' />
+            <property name='title' value='Pel&#237;culas Ganadoras A&#241;o a A&#241;o' />
+            <property name='value' value='#{OscarsDefaultviewView.peliculasProvider}' />
+            <property name='var' value='pelicula' />
+            <property name='width' value='100%' />
+            <facet name='footer'>
+              <control component-type='com.webmethods.caf.faces.table.PrevNext' renderer-type='com.webmethods.caf.faces.table.PrevNext'>
+                <property name='id' value='prevNext' />
+                <control component-type='javax.faces.HtmlPanelGroup' renderer-type='com.webmethods.caf.faces.panel.BlockPanel'>
+                  <property name='id' value='blockPanel' />
+                  <property name='style' value='text-align:center;' />
+                  <control component-type='com.webmethods.caf.faces.table.DataTotal' renderer-type='com.webmethods.caf.faces.table.DataTotal'>
+                    <property name='id' value='dataTotal' />
+                  </control>
+                </control>
+              </control>
+            </facet>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn' />
+              <property name='label' value='ID' />
+              <property name='sort' value='#{pelicula.id}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText1' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='ID' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idTabla' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.id}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn1' />
+              <property name='label' value='Annio' />
+              <property name='sort' value='#{pelicula.annio}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText3' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='A&#241;o' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idAnnio' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.annio}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn2' />
+              <property name='label' value='Edicion' />
+              <property name='sort' value='#{pelicula.edicion}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText5' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Edicion' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idEdicion' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.edicion}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn3' />
+              <property name='label' value='Nombre' />
+              <property name='sort' value='#{pelicula.nombre}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText7' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Nombre' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idNombre' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.nombre}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn4' />
+              <property name='label' value='Premios' />
+              <property name='sort' value='#{pelicula.premios}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText9' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Premios' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idPremios' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.premios}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn5' />
+              <property name='label' value='Nominaciones' />
+              <property name='sort' value='#{pelicula.nominaciones}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText11' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Nominaciones' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idNominaciones' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.nominaciones}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='id' value='htmlTableColumn6' />
+              <property name='label' value='Genero' />
+              <property name='sort' value='#{pelicula.genero}' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText13' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Genero' />
+                </control>
+              </facet>
+              <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                <property name='id' value='idGenero' />
+                <property name='raw' value='true' />
+                <property name='value' value='#{pelicula.genero}' />
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='align' value='center' />
+              <property name='id' value='htmlTableColumn8' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText132' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Modificar' />
+                </control>
+              </facet>
+              <control component-type='com.webmethods.caf.faces.command.async.Icon' renderer-type='com.webmethods.caf.faces.command.async.Icon'>
+                <property name='action' value='#{OscarsDefaultviewView.cargarDatosModalAction}' />
+                <property name='forms' value='defaultForm:modalDialog' />
+                <property name='id' value='idModificarIcon' />
+                <property name='onclick' value='CAF.model(&apos;#{activePageBean.clientIds[&quot;idProcesamiento&quot;]}&apos;).setValue(&quot;MODIFICAR&quot;);' />
+                <property name='title' value='Modificar Pel&#237;cula' />
+                <property name='toggle' value='defaultForm:modalDialog' />
+                <property name='url' value='/image/update.png' />
+                <property name='urlMouseover' value='/image/updateOver.png' />
+                <control component-type='javax.faces.Parameter' renderer-type=''>
+                  <property name='name' value='idTabla' />
+                  <property name='value' value='#{pelicula.id}' />
+                </control>
+              </control>
+            </control>
+            <control component-type='com.webmethods.caf.faces.table.html.HtmlTableColumn' renderer-type='com.webmethods.caf.faces.render.table.IExtendedColumnRenderer'>
+              <property name='align' value='center' />
+              <property name='id' value='htmlTableColumn7' />
+              <facet name='header'>
+                <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+                  <property name='id' value='htmlOutputText131' />
+                  <property name='raw' value='true' />
+                  <property name='value' value='Borrar' />
+                </control>
+              </facet>
+              <control component-type='com.webmethods.caf.faces.command.async.Icon' renderer-type='com.webmethods.caf.faces.command.async.Icon'>
+                <property name='action' value='#{OscarsDefaultviewView.borrarPeliculaAction}' />
+                <property name='id' value='idBorrarIcon' />
+                <property name='refresh' value='defaultForm:idPanelBody' />
+                <property name='title' value='Borrar Pel&#237;cula' />
+                <property name='url' value='/image/erase.png' />
+                <property name='urlMouseover' value='/image/eraseOver.png' />
+                <control component-type='javax.faces.Parameter' renderer-type=''>
+                  <property name='name' value='idTabla' />
+                  <property name='value' value='#{pelicula.id}' />
+                </control>
+              </control>
+            </control>
+          </control>
+        </control>
+      </control>
+    </control>
+    <control component-type='javax.faces.HtmlPanelGroup' renderer-type='com.webmethods.caf.faces.panel.BlockPanel'>
+      <property name='id' value='idPanelFooter' />
+      <control component-type='com.webmethods.caf.faces.panel.ModalDialog' renderer-type='com.webmethods.caf.faces.panel.ModalDialog'>
+        <property name='id' value='modalDialog' />
+        <property name='progressFlashOnComplete' value='false' />
+        <property name='styleClass' value='modal' />
+        <property name='width' value='35%' />
+        <facet name='title'>
+          <control component-type='javax.faces.HtmlOutputText' renderer-type='javax.faces.Text'>
+            <design-time-attribute name='controlGetterMethod' value='getIdMensajeModal' />
+            <property name='id' value='idMensajeModal' />
+            <property name='value' value='AGREGAR PEL&#205;CULAS' />
+          </control>
+        </facet>
+        <facet name='submit'>
+          <control component-type='com.webmethods.caf.faces.command.async.Button' renderer-type='com.webmethods.caf.faces.command.async.Button'>
+            <property name='action' value='#{OscarsDefaultviewView.procesarPeliculaAction}' />
+            <property name='id' value='idBtnAgregar' />
+            <property name='onclick' value='if (validarData()){&#13;&#10;&#9;mostrarTextInputAgregarPelicula();&#13;&#10;} else {&#13;&#10;&#9;return false;&#13;&#10;}&#13;&#10;' />
+            <property name='refresh' value='defaultForm:idPanelBody' />
+            <property name='styleClass' value='boton' />
+            <property name='value' value='Procesar' />
+          </control>
+        </facet>
+        <facet name='cancel'>
+          <control component-type='com.webmethods.caf.faces.toggle.OneWayToggleButton' renderer-type='com.webmethods.caf.faces.toggle.OneWayToggleButton'>
+            <property name='for' value='modalDialog' />
+            <property name='id' value='idBtnCancelar' />
+            <property name='styleClass' value='boton' />
+            <property name='value' value='Cancelar' />
+          </control>
+        </facet>
+        <control component-type='com.webmethods.caf.faces.panel.PropertyGroup' renderer-type='com.webmethods.caf.faces.panel.PropertyGroup'>
+          <design-time-attribute name='controlGetterMethod' value='getIdMensajeModal' />
+          <property name='id' value='proprtyGroup' />
+          <property name='label' value='Pel&#237;cula' />
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine' />
+            <property name='label' value='ID' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <design-time-attribute name='controlGetterMethod' value='getIdModal' />
+              <property name='id' value='idModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.id}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine1' />
+            <property name='label' value='A&#241;o' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <property name='id' value='annioModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.annio}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine2' />
+            <property name='label' value='Edici&#243;n' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <property name='id' value='edicionModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.edicion}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine3' />
+            <property name='label' value='Nombre' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <property name='id' value='nombreModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.nombre}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine4' />
+            <property name='label' value='Premios' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <property name='id' value='premiosModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.premios}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine5' />
+            <property name='label' value='Nominaciones' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <property name='id' value='nominacionesModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.nominaciones}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+          <control component-type='com.webmethods.caf.faces.panel.PropertyLine' renderer-type='com.webmethods.caf.faces.panel.PropertyLine'>
+            <property name='id' value='propertyLine6' />
+            <property name='label' value='G&#233;nero' />
+            <control component-type='javax.faces.HtmlInputText' renderer-type='javax.faces.Text'>
+              <property name='id' value='generoModal' />
+              <property name='value' value='#{OscarsDefaultviewView.agregarPelicula.parameters.agregarPelicula.agregarPelicula.pelicula.genero}' />
+              <property name='width' value='input20' />
+            </control>
+          </control>
+        </control>
+      </control>
+      <control component-type='com.webmethods.caf.faces.output.Script' renderer-type='com.webmethods.caf.faces.output.Script'>
+        <property name='id' value='script' />
+        <property name='value' value='validarEspacioVacio(&apos;#{activePageBean.clientIds[&quot;generoModal&quot;]}&apos;);' />
+      </control>
+      <control component-type='javax.faces.HtmlInputHidden' renderer-type='javax.faces.Hidden'>
+        <property name='id' value='idProcesamiento' />
+        <property name='value' value='#{OscarsDefaultviewView.procesamiento}' />
+      </control>
+    </control>
+  </control>
+</view>
